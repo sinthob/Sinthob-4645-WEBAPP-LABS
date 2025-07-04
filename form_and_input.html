@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration Form</title>
+  </head>
+  <body>
+    <h1>User Registration</h1>
+
+    <form action="/register" method="post">
+      <!-- HTML comment: Personal Information -->
+      <fieldset>
+        <legend>Personal Information</legend>
+
+        <p>
+          <label for="fullname">Full Name *</label><br />
+          <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            required
+            placeholder="Enter your full name"
+            minlength="2"
+          />
+        </p>
+
+        <p>
+          <label for="email">Email Address *</label><br />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="example@domain.com"
+          />
+        </p>
+
+        <p>
+          <label for="password">Password *</label><br />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            placeholder="Choose a strong password"
+            minlength="8"
+          />
+        </p>
+
+        <p>
+          <label for="phone">Phone Number</label><br />
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="+1 (555) 123-4567"
+          />
+        </p>
+
+        <p>
+          <label for="birthdate">Date of Birth</label><br />
+          <input type="date" id="birthdate" name="birthdate" max="2006-01-01" />
+        </p>
+
+        <p>
+          <label>Gender</label><br />
+          <input type="radio" id="male" name="gender" value="male" />
+          <label for="male">Male</label><br />
+
+          <input type="radio" id="female" name="gender" value="female" />
+          <label for="female">Female</label><br />
+
+          <input type="radio" id="other" name="gender" value="other" />
+          <label for="other">Other</label><br />
+
+          <input
+            type="radio"
+            id="prefer-not-to-say"
+            name="gender"
+            value="prefer-not-to-say"
+          />
+          <label for="prefer-not-to-say">Prefer not to say</label>
+        </p>
+      </fieldset>
+
+      <!-- Education & Interests -->
+      <fieldset>
+        <legend>Education & Interests</legend>
+
+        <p>
+          <label for="education">Education Level</label><br />
+          <select id="education" name="education">
+            <option value="">Select education level</option>
+            <option value="high-school">High School</option>
+            <option value="bachelors">Bachelor's Degree</option>
+            <option value="masters">Master's Degree</option>
+            <option value="phd">Ph.D.</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="university">University/Institution</label><br />
+          <input
+            list="universities"
+            id="university"
+            name="university"
+            placeholder="Type or select your institution"
+          />
+          <datalist id="universities">
+            <option value="Khon Kaen University"></option>
+            <option value="Chiang Mai University"></option>
+            <option value="Chulalongkorn University"></option>
+          </datalist>
+        </p>
+
+        <p>
+          <label>Programming Skills (Select all that apply)</label><br />
+          <input type="checkbox" id="html" name="skills[]" value="html" />
+          <label for="html">HTML</label><br />
+
+          <input type="checkbox" id="css" name="skills[]" value="css" />
+          <label for="css">CSS</label><br />
+
+          <input
+            type="checkbox"
+            id="javascript"
+            name="skills[]"
+            value="javascript"
+          />
+          <label for="javascript">JavaScript</label><br />
+
+          <input type="checkbox" id="python" name="skills[]" value="python" />
+          <label for="python">Python</label><br />
+
+          <input type="checkbox" id="react" name="skills[]" value="react" />
+          <label for="react">React</label>
+        </p>
+      </fieldset>
+
+      <!-- Age Calculator Demo -->
+      <fieldset>
+        <legend>Age Calculator</legend>
+        <form oninput="x.value=parseInt(a.value)-parseInt(b.value)">
+          <p>
+            <label for="current-year">Current Year</label><br />
+            <input
+              type="number"
+              id="current-year"
+              name="a"
+              value="2025"
+              min="2020"
+              max="2030"
+            />
+          </p>
+          <p>
+            <label for="birth-year">Birth Year</label><br />
+            <input
+              type="number"
+              id="birth-year"
+              name="b"
+              min="1950"
+              max="2010"
+              placeholder="2000"
+            />
+          </p>
+        </form>
+      </fieldset>
+
+      <!-- Comments Section -->
+      <fieldset>
+        <legend>Additional Information</legend>
+
+        <p>
+          <label for="comments">Comments or Questions</label><br />
+          <textarea
+            id="comments"
+            name="comments"
+            rows="4"
+            cols="50"
+            placeholder="Please share any additional information or questions..."
+          ></textarea>
+        </p>
+      </fieldset>
+
+      <!-- Terms and Submit -->
+      <p>
+        <input type="checkbox" id="terms" name="terms" required />
+        <label for="terms"
+          >I agree to the Terms of Service and Privacy Policy *</label
+        >
+      </p>
+      <p>
+        <button type="submit">Create Account</button>
+        <button type="reset">Clear Form</button>
+      </p>
+    </form>
+
+    <hr />
+    <p><strong>Note:</strong> Fields marked with * are required</p>
+  </body>
+</html>
