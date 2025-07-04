@@ -11,7 +11,7 @@
     <p><em>Your opinion matters to us! Please share your experience.</em></p>
 
     <form action="/customer_feedback" method="post">
-      <!-- HTML comment: Personal Information -->
+      <!-- Customer Information -->
       <fieldset>
         <legend>Customer Information</legend>
 
@@ -59,7 +59,7 @@
         </p>
       </fieldset>
 
-      <!-- Education & Interests -->
+      <!-- Service Evaluation -->
       <fieldset>
         <legend>Service Evaluation</legend>
 
@@ -91,14 +91,14 @@
           <input
             type="radio"
             id="very-good-rating"
-            name="very-good"
+            name="service-rating"
             value="very-good"
           />
           <label for="javascript">4 - Very Good</label><br />
           <input
             type="radio"
             id="excellent-rating"
-            name="excellent"
+            name="service-rating"
             value="Jexcellent"
           />
           <label for="javascript">5 - Excellent</label><br />
@@ -107,7 +107,7 @@
         <p>
           <label for="service-category">Service Category *</label><br />
           <select name="serviceDropdown" id="service-category" required>
-            <option value="service-category">Select service category</option>
+            <option value="">Select service category</option>
             <option value="technical-support">Technical Support</option>
             <option value="sales">Sales</option>
             <option value="billing">Billing</option>
@@ -143,7 +143,7 @@
         </p>
       </fieldset>
 
-      <!-- Age Calculator Demo -->
+      <!-- Experience Details -->
       <fieldset>
         <legend>Experience Details</legend>
 
@@ -187,7 +187,7 @@
         </p>
       </fieldset>
 
-      <!-- Comments Section -->
+      <!-- Contact Preferences -->
       <fieldset>
         <legend>Contact Preferences</legend>
 
