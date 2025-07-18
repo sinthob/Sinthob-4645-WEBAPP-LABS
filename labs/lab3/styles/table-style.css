@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif; 
+    max-width: 900px; 
+    margin: 0 auto; 
+    padding: 20px; 
+}
+
+h1 {
+   color: #2c3e50; 
+}
+
+h2 {
+    color: #7f8c8d; 
+}
+
+#creditName {
+   font-size: 0.8em;
+    padding: 10px;
+    background-color: #e9ecef;;
+    color: #6c757d; 
+    text-align: center; 
+}
+
+header {
+    color: white;
+    padding: 12px 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.active {
+   color: #4CAF50 ;
+}
+
+.warning {
+   color: #ff9800 ;
+}
+
+.probation {
+   color: #f44336 ;
+}
+
+table,
+th,    
+td {  
+    border: 1px solid rgb(255, 255, 255);
+}
+
+
+
+      
+table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd; 
+        margin: auto; 
+        overflow-x:auto;
+}
+
+
+th {
+    text-align: left; 
+}
+
+
+td {
+    text-align: center; 
+}
+
+    
+
+th,
+td {
+    vertical-align: top; 
+    vertical-align: bottom; 
+    vertical-align: middle; 
+}
+
+
+
+td {
+    padding: 8px; 
+}
+
+      
+tr:nth-child(even) {
+    background-color: #f2f2f2; 
+    padding: 8px;    
+}
+
+tr:nth-child(odd) {
+    background-color: white; 
+}
+
+      
+
+  
+tr:hover {
+    background-color: #ddd; 
+    cursor: pointer; 
+}
+
+    
+    
+th {
+    background-color: #4caf50; 
+    color: white; 
+    padding: 12px 8px; 
+    text-align: left; 
+    font-weight: bold; 
+}
+
+
+th,
+td {
+    border-bottom: 1px solid #ddd; 
+}
+
+  
