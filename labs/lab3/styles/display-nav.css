@@ -4,325 +4,275 @@
         box-sizing: border-box;
       }
 
-      /* Base body styling - sets consistent font and creates neutral background
-         The padding provides breathing room around the entire demo */
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
-        padding: 20px;
-      }
+.block-demo {
+    width: 200px;
+   height: 50px;
+   margin: 10px 0;
+   color: white;
+   text-align: center;
+   line-height: 50px;
+   font-weight: bold;
 
-
-.block-desplay div{
     display: block;
 }
-      /* =====================================================
-         LAYOUT CONTAINER STYLES
-         ===================================================== */
 
-      /* Main container provides centered layout with consistent styling
-         Max-width prevents content from stretching too wide on large screens
-         Margin auto centers the container horizontally */
-      .demo-container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
 
-      /* Typography hierarchy - h1 for main title, h2 for section headers
-         Consistent color scheme and spacing creates visual hierarchy */
-      h1 {
-        color: #333;
-        text-align: center;
-        margin-bottom: 30px;
-      }
+.inline-demo {
+    padding: 10px 15px;
+    margin: 5px ;
+    color: white;
+    display: inline;
+    font-weight: bold;
+}
 
-      h2 {
-        color: #666;
-        margin: 20px 0 10px 0;
-        padding-bottom: 5px;
-        border-bottom: 2px solid #ddd; /* Visual separator for sections */
-      }
+.inline-block-demo {
+   margin: 5px;
+  line-height: 60px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+   display: inline-block;
+   height: 60px; 
+   width: 150px;
+}
 
-      /* Each demo section gets consistent spacing and subtle background
-         This helps students visually separate different concepts */
-      .demo-section {
-        margin-bottom: 30px;
-        padding: 15px;
-        background-color: #f9f9f9;
-        border-radius: 5px;
-      }
+nav {
+  margin: 25px 0;
+}
 
-      /* =====================================================
-         INTERACTIVE BUTTON STYLES
-         ===================================================== */
+nav ul {
+  padding: 0;
+  margin: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
 
-      /* Toggle buttons for switching between navigation methods
-         Consistent styling with hover and active states teaches interaction design */
-      .toggle-btn {
-        padding: 8px 16px;
-        margin: 5px;
-        background-color: #007bff; /* Primary blue color */
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s; /* Smooth color transition on hover */
-      }
+nav a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
 
-      /* Hover state provides immediate visual feedback
-         This is crucial for user experience design */
-      .toggle-btn:hover {
-        background-color: #0056b3; /* Darker blue on hover */
-      }
 
-      /* Active state shows which method is currently selected
-         Green color clearly indicates the active choice */
-      .toggle-btn.active {
-        background-color: #28a745; /* Green for active state */
-      }
+.flex-nav ul {
+   list-style: none;
+   background-color: #333;
+   color: white;
+   padding: 15px 20px; 
+   display: flex; 
+}
 
-      /* Content area that updates based on navigation interactions
-         This demonstrates how navigation affects page content */
-      .content-area {
-        margin-top: 15px;
-        padding: 15px;
-        background-color: #e9ecef; /* Light gray background */
-        border-radius: 4px;
-        min-height: 60px; /* Ensures consistent height even with short content */
-      }
+      
+.flex-nav li {
+   flex: 1; /* flex-grow: 1; flex-shrink: 1; flex-basis: 0; */
+}
 
-      /* =====================================================
-         VERTICAL NAVIGATION STYLES
-         Purpose: Demonstrates sidebar-style navigation
-         Common in: Admin panels, desktop applications, sidebars
-         ===================================================== */
 
-      /* Flexbox layout places navigation and content side by side
-         Gap property provides consistent spacing between elements */
-      .vertical-demo {
-        display: flex;
-        gap: 20px;
-        align-items: flex-start; /* Aligns items to top */
-      }
+.flex-nav li a {
+   display: block;
+   color: white;
+   padding: 12px 20px;
+   text-decoration: none;
+   text-align: center; /* Centers text in each flex item */
+   transition: background-color 0.3s;
+}
 
-      /* Removes default list styling (bullets, margins)
-         Sets fixed width for consistent layout
-         Background color creates visual container */
-      .vertical-nav ul {
-        list-style-type: none;
-        width: 150px;
-        background-color: #f1f1f1;
-        border-radius: 4px;
-      }
 
-      /* Block display makes entire link area clickable
-         This is a key usability principle - larger click targets are better
-         Text decoration removes default underline */
-      .vertical-nav li a {
-        display: block;
-        color: #333;
-        padding: 10px 15px;
-        text-decoration: none;
-        border-bottom: 1px solid #ddd; /* Subtle separator between items */
-        transition: all 0.3s ease; /* Smooth transitions for professional feel */
-      }
+.flex-nav li a:hover {
+   background-color: #4CAF50;
+}
 
-      /* Hover effect provides immediate visual feedback
-         Dark background with white text creates strong contrast */
-      .vertical-nav li a:hover {
-        background-color: #555;
-        color: white;
-      }
 
-      /* Active state shows current page location
-         This is essential for navigation usability */
-      .vertical-nav li a.active {
-        background-color: #007bff;
-        color: white;
-      }
+/* ใส่สีตรงๆใน htmlเเล้ว hover ไม่ขึ้น */
+.block-demo:nth-child(2) { background-color: red; }
+.block-demo:nth-child(3) { background-color: green; }
+.block-demo:nth-child(4) { background-color: blue; }
 
-      /* =====================================================
-         HORIZONTAL NAVIGATION STYLES
-         Purpose: Demonstrates three different CSS methods for horizontal layout
-         Teaching point: Multiple approaches can achieve same visual result
-         ===================================================== */
+/*for display */
 
-      /* METHOD 1: INLINE DISPLAY
-         Older method but still useful for simple layouts
-         Advantage: Simple and straightforward
-         Disadvantage: Limited layout control */
-      .inline-nav ul {
-        list-style-type: none;
-        background-color: #333; /* Dark background for contrast */
-        border-radius: 4px;
-        padding: 0;
-      }
+.inline-demo:nth-child(2) { background-color: red; }
+.inline-demo:nth-child(3) { background-color: green; }
+.inline-demo:nth-child(4) { background-color: blue; }
 
-      /* Display: inline removes line breaks between list items
-         This creates horizontal layout */
-      .inline-nav li {
-        display: inline;
-      }
 
-      /* Inline-block allows padding while keeping items on same line
-         This creates clickable areas around text */
-      .inline-nav li a {
-        display: inline-block;
-        color: white;
-        padding: 12px 20px;
-        text-decoration: none;
-        transition: background-color 0.3s;
-      }
+.inline-block-demo:nth-child(2) { background-color: red; }
+.inline-block-demo:nth-child(3) { background-color: green; }
+.inline-block-demo:nth-child(4) { background-color: blue; }
 
-      .inline-nav li a:hover {
-        background-color: #555;
-      }
 
-      /* METHOD 2: FLOAT (Legacy approach)
-         Important for students to understand but not recommended for new projects
-         Advantage: Historically important, widely supported
-         Disadvantage: Requires clearfix, can cause layout issues */
-      .float-nav ul {
-        list-style-type: none;
-        background-color: #333;
-        border-radius: 4px;
-        overflow: hidden; /* Clearfix - contains floated elements */
-      }
+.block-demo:hover,
+.inline-demo:hover,
+.inline-block-demo:hover {
+   background-color: #e1ac00;
+}
 
-      /* Float: left makes elements line up horizontally
-         This was the primary method before flexbox */
-      .float-nav li {
-        float: left;
-      }
 
-      .float-nav li a {
-        display: block;
-        color: white;
-        padding: 12px 20px;
-        text-decoration: none;
-        transition: background-color 0.3s;
-      }
+/*for flexbox */
+.flex-item:nth-child(1) { background-color: red; }
+.flex-item:nth-child(2) { background-color: green; }
+.flex-item:nth-child(3) { background-color: blue; }
+.flex-item:nth-child(4) { background-color: #e3af04; }
 
-      .float-nav li a:hover {
-        background-color: #555;
-      }
 
-      /* METHOD 3: FLEXBOX (Modern approach)
-         Recommended method for modern web development
-         Advantage: Powerful, flexible, handles edge cases well
-         Disadvantage: Requires understanding of flexbox concepts */
-      .flex-nav ul {
-        list-style-type: none;
-        background-color: #333;
-        border-radius: 4px;
-        display: flex; /* Creates flexible layout container */
-      }
+.flex-container div:hover {
+   background-color: #4CAF50;
+   border-radius: 8px;
+   align-items: center;
+   display: flex;  
+}
 
-      /* Flex: 1 makes each item take equal space
-         This creates evenly distributed navigation items */
-      .flex-nav li {
-        flex: 1;
-      }
+.flex-item {
+  color: white;
+  padding: 20px;
+  margin: 5px;
+  border-radius: 4px;
+  min-width: 0;
+  text-align: center;
+  display: flex; 
+  justify-content: center;
+  font-weight: bold;
+}
 
-      .flex-nav li a {
-        display: block;
-        color: white;
-        padding: 12px 20px;
-        text-decoration: none;
-        text-align: center; /* Centers text in each flex item */
-        transition: background-color 0.3s;
-      }
+.flex-container {
+      display: flex;              
+      background: #e9ecef;        
+      padding: 10px;              
+      margin: 10px 0;             
+      gap: 10px;                  
+}
+      
+   
 
-      .flex-nav li a:hover {
-        background-color: #555;
-      }
 
-      /* =====================================================
-         DROPDOWN NAVIGATION STYLES
-         Purpose: Demonstrates complex navigation hierarchies
-         Key concept: CSS positioning (relative + absolute)
-         ===================================================== */
+.flex-item small {
+   display: block;
+  font-size: 12px;
+  margin-top: 8px;
+  opacity: 0.9;
+}
 
-      /* Main dropdown container uses flexbox for horizontal layout
-         Justify-content: center centers the navigation */
-      .dropdown-nav ul {
-        list-style-type: none;
-        background-color: #333;
-        border-radius: 4px;
-        display: flex;
-        justify-content: center;
-      }
 
-      /* Relative positioning creates positioning context for absolute children
-         This is crucial for dropdown functionality */
-      .dropdown {
-        position: relative;
-      }
+.flex-item1 {
+  flex-grow: 1; 
+  flex-shrink: 1 ;
+  flex-basis: 200px;
+  background-color: red;
+  align-items: center; 
+  flex-direction: column;
+}
 
-      /* Standard navigation link styling
-         Consistent with other navigation methods */
-      .dropdown-nav a {
-        display: block;
-        color: white;
-        padding: 12px 20px;
-        text-decoration: none;
-        transition: background-color 0.3s;
-      }
+.flex-item2 {
+  flex-grow: 3; 
+  flex-shrink: 1 ;
+  flex-basis: 200px;
+  background-color: green;
+  align-items: center; 
+  flex-direction: column;
+}
 
-      .dropdown-nav a:hover {
-        background-color: #555;
-      }
+.flex-item3 {
+  flex-grow: 1; 
+  flex-shrink: 3 ;
+  flex-basis: 200px;
+  background-color: blue;
+  align-items: center; 
+  flex-direction: column;
+}
 
-      /* The dropdown content - hidden by default
-         Absolute positioning removes it from document flow
-         Z-index ensures it appears above other content */
-      .dropdown-content {
-        display: none; /* Hidden by default - key to dropdown functionality */
-        position: absolute; /* Positioned relative to .dropdown parent */
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-        z-index: 1; /* Ensures dropdown appears above other content */
-        border-radius: 4px;
-        overflow: hidden; /* Ensures rounded corners work properly */
-      }
+.flex-item4 {
+  flex-grow: 2; 
+  flex-shrink: 2;
+  flex-basis: 200px;
+  background-color: orange;
+  align-items: center; 
+  flex-direction: column;
+}
 
-      /* CSS :hover pseudo-class shows dropdown on hover
-         This is pure CSS interaction without JavaScript
-         Teaching point: CSS can handle simple interactions */
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
 
-      /* Dropdown links have different styling than main navigation
-         Demonstrates how nested elements can have different appearance */
-      .dropdown-content a {
-        color: #333; /* Dark text on light background */
-        padding: 10px 15px;
-        border-bottom: 1px solid #ddd; /* Separators between items */
-      }
 
-      .dropdown-content a:hover {
-        background-color: #f1f1f1; /* Subtle hover effect */
-      }
 
-      /* =====================================================
-         METHOD SWITCHING FUNCTIONALITY
-         Purpose: Allows students to compare different CSS approaches
-         ===================================================== */
+    
+body {
+   font-family: Arial, sans-serif;
+   max-width: 800px;
+   margin: 0 auto;               
+   background-color: #f5f5f5;
+   line-height: 1.6;
+   padding: 20px;
+}
 
-      /* Initially hidden method demos
-         JavaScript will show/hide these based on button clicks */
-      .method-demo {
-        display: none;
-      }
 
-      /* Active method demo is visible
-         This creates the switching functionality */
-      .method-demo.active {
-        display: block;
-      }
+    
+.section {
+   background: white;                         
+   margin: 30px 0px 0px 0px;                             
+   padding: 15px;                              
+   border-radius: 8px;                         
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+}
+
+
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color:  #2c3e50;
+}
+
+
+h2 {
+  color: #34495e;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+}
+
+h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+
+
+.demo-section {
+  margin: 25px 0;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
