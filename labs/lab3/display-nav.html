@@ -3,432 +3,104 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navigation Concepts Demo</title>
+    <title>CSS Display & Navigation Demo</title>
     <link rel="stylesheet" href="styles/display-nav.css" />
   </head>
   <body>
+    <!-- Header Section -->
     <header>
       <h1>CSS Display & Navigation Demo</h1>
-      <h2>Sinthob Katasila 653040464-5</h2>
+      <h2>Created by Sinthob Katasila - Student ID: 653040464-5</h2>
     </header>
 
-    <section class="heading">
-      <hr />
+    <!-- Display Property Demo Section -->
+    <section>
       <h2>Display Property Examples</h2>
-      <hr />
 
-      <section class="block-desplay">
-        <div>Block 1</div>
-        <div>Block 2</div>
-        <div>Block 3</div>
-      </section>
+      <!-- Block Elements Demo -->
+      <div class="demo-section">
+        <h3>Block Elements (display: block)</h3>
 
-      <section class="inline-desplay">
-        <span>inline 1</span>
-        <span>inline 2</span>
-        <span>inline 3</span>
-      </section>
+        <div class="block-demo">Block 1</div>
+        <div class="block-demo">Block 2</div>
+        <div class="block-demo">Block 3</div>
 
-      <section class="Inline-Block-desplay">
-        <div>Inline-Block 1</div>
-        <div>Inline-Block 2</div>
-        <div>Inline-Block 3</div>
-      </section>
+        <p><em>Block elements take full width and start on new lines</em></p>
+      </div>
+
+      <!-- Inline Elements Demo -->
+      <div class="demo-section">
+        <h3>Inline Elements (display: inline)</h3>
+
+        <span class="inline-demo">Inline 1</span>
+        <span class="inline-demo">Inline 2</span>
+        <span class="inline-demo">Inline 3</span>
+
+        <p><em>Inline elements flow side-by-side, width/height ignored</em></p>
+      </div>
+
+      <!-- Inline-Block Elements Demo -->
+      <div class="demo-section">
+        <h3>Inline-Block Elements (display: inline-block)</h3>
+
+        <div class="inline-block-demo">Inline-Block 1</div>
+        <div class="inline-block-demo">Inline-Block 2</div>
+        <div class="inline-block-demo">Inline-Block 3</div>
+
+        <p>
+          <em
+            >Inline-block elements flow side-by-side but accept width/height</em
+          >
+        </p>
+      </div>
     </section>
 
-    <div class="demo-container">
-      <h1>Navigation Concepts Demo</h1>
-
-      <!-- ===============================================
-           VERTICAL NAVIGATION DEMO
-           
-           Learning objectives:
-           - Understand semantic HTML structure
-           - Learn about block vs inline display
-           - Practice CSS positioning concepts
-           - Understand active states and user feedback
-           =============================================== -->
-      <div class="demo-section">
-        <h2>1. Vertical Navigation</h2>
-        <p><strong>Use:</strong> Sidebars, admin panels, desktop apps</p>
-
-        <div class="vertical-demo">
-          <!-- Semantic HTML structure: nav > ul > li > a
-               This structure is accessible and meaningful to screen readers
-               The nav element indicates navigation landmark -->
-          <nav class="vertical-nav">
-            <ul>
-              <li>
-                <!-- onclick demonstrates JavaScript event handling
-                     'this' refers to the clicked element
-                     preventDefault is handled globally to stop page navigation -->
-                <a href="#" class="active" onclick="setActive(this, 'Home')"
-                  >Home</a
-                >
-              </li>
-              <li><a href="#" onclick="setActive(this, 'News')">News</a></li>
-              <li>
-                <a href="#" onclick="setActive(this, 'Contact')">Contact</a>
-              </li>
-              <li><a href="#" onclick="setActive(this, 'About')">About</a></li>
-            </ul>
-          </nav>
-
-          <!-- Content area demonstrates how navigation affects page content
-               ID allows JavaScript to target this specific element -->
-          <div class="content-area" id="vertical-content">
-            <strong>Home Content</strong><br />
-            Click navigation links to see content change and active states.
-          </div>
-        </div>
-      </div>
-
-      <!-- ===============================================
-           HORIZONTAL NAVIGATION DEMO
-           
-           Learning objectives:
-           - Compare three different CSS layout methods
-           - Understand evolution of web layout techniques
-           - Practice method switching with JavaScript
-           - Learn about CSS transitions and hover effects
-           =============================================== -->
-      <div class="demo-section">
-        <h2>2. Horizontal Navigation Methods</h2>
-        <p><strong>Use:</strong> Main site navigation, headers, top menus</p>
-
-        <!-- Method switching buttons demonstrate JavaScript DOM manipulation
-             Each button shows/hides different CSS implementations -->
-        <div>
-          <button class="toggle-btn active" onclick="showMethod('inline')">
-            Inline Display
-          </button>
-          <button class="toggle-btn" onclick="showMethod('float')">
-            Float Method
-          </button>
-          <button class="toggle-btn" onclick="showMethod('flex')">
-            Flexbox (Modern)
-          </button>
-        </div>
-
-        <!-- Method 1: Inline Display
-             Demonstrates how display: inline creates horizontal layout
-             Students can see the CSS and test the functionality -->
-        <div id="inline-demo" class="method-demo active">
-          <h3>Method 1: Inline Display</h3>
-          <nav class="inline-nav">
-            <ul>
-              <li>
-                <a href="#" onclick="updateContent('Inline', 'Home')">Home</a>
-              </li>
-              <li>
-                <a href="#" onclick="updateContent('Inline', 'News')">News</a>
-              </li>
-              <li>
-                <a href="#" onclick="updateContent('Inline', 'Contact')"
-                  >Contact</a
-                >
-              </li>
-              <li>
-                <a href="#" onclick="updateContent('Inline', 'About')">About</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-        <!-- Method 2: Float
-             Shows legacy approach for historical context
-             Important for understanding existing codebases -->
-        <div id="float-demo" class="method-demo">
-          <h3>Method 2: Float (Legacy)</h3>
-          <nav class="float-nav">
-            <ul>
-              <li>
-                <a href="#" onclick="updateContent('Float', 'Home')">Home</a>
-              </li>
-              <li>
-                <a href="#" onclick="updateContent('Float', 'News')">News</a>
-              </li>
-              <li>
-                <a href="#" onclick="updateContent('Float', 'Contact')"
-                  >Contact</a
-                >
-              </li>
-              <li>
-                <a href="#" onclick="updateContent('Float', 'About')">About</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-        <!-- Method 3: Flexbox
-             Demonstrates modern CSS layout approach
-             Recommended for new projects -->
-        <div id="flex-demo" class="method-demo">
-          <h3>Method 3: Flexbox (Recommended)</h3>
-          <nav class="flex-nav">
-            <ul>
-              <li>
-                <a href="#" onclick="updateContent('Flexbox', 'Home')">Home</a>
-              </li>
-              <li>
-                <a href="#" onclick="updateContent('Flexbox', 'News')">News</a>
-              </li>
-              <li>
-                <a href="#" onclick="updateContent('Flexbox', 'Contact')"
-                  >Contact</a
-                >
-              </li>
-              <li>
-                <a href="#" onclick="updateContent('Flexbox', 'About')"
-                  >About</a
-                >
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-        <!-- Shared content area shows how different methods achieve same result
-             This reinforces that CSS is about presentation, not functionality -->
-        <div class="content-area" id="horizontal-content">
-          <strong>Inline Method Active</strong><br />
-          Switch between methods to see different CSS approaches for the same
-          result.
-        </div>
-      </div>
-
-      <!-- ===============================================
-           DROPDOWN NAVIGATION DEMO
-           
-           Learning objectives:
-           - Understand CSS positioning (relative + absolute)
-           - Learn about z-index and layering
-           - Practice hover pseudo-classes
-           - Understand complex navigation hierarchies
-           =============================================== -->
-      <div class="demo-section">
-        <h2>3. Dropdown Navigation</h2>
-        <p>
-          <strong>Use:</strong> Complex site structures, categorized content
-        </p>
-
-        <nav class="dropdown-nav">
-          <ul>
-            <li><a href="#" onclick="updateDropdown('Home')">Home</a></li>
-
-            <!-- Dropdown container demonstrates relative positioning
-                 The dropdown-content will be positioned relative to this element -->
-            <li class="dropdown">
-              <a href="#" onclick="updateDropdown('Products')">Products ▼</a>
-              <!-- Hidden dropdown content uses absolute positioning
-                   CSS :hover pseudo-class controls visibility -->
-              <div class="dropdown-content">
-                <a href="#" onclick="updateDropdown('Web Design')"
-                  >Web Design</a
-                >
-                <a href="#" onclick="updateDropdown('Mobile Apps')"
-                  >Mobile Apps</a
-                >
-                <a href="#" onclick="updateDropdown('SEO Services')"
-                  >SEO Services</a
-                >
-              </div>
-            </li>
-
-            <!-- Second dropdown demonstrates scalability
-                 Same structure can be repeated for multiple dropdowns -->
-            <li class="dropdown">
-              <a href="#" onclick="updateDropdown('Services')">Services ▼</a>
-              <div class="dropdown-content">
-                <a href="#" onclick="updateDropdown('Consulting')"
-                  >Consulting</a
-                >
-                <a href="#" onclick="updateDropdown('Development')"
-                  >Development</a
-                >
-              </div>
-            </li>
-
-            <li><a href="#" onclick="updateDropdown('Contact')">Contact</a></li>
-          </ul>
-        </nav>
-
-        <!-- Content area provides feedback for dropdown interactions
-             Helps students understand the relationship between UI and content -->
-        <div class="content-area" id="dropdown-content">
-          <strong>Dropdown Demo</strong><br />
-          Hover over "Products" or "Services" to see dropdown menus.
-        </div>
-      </div>
-
-      <!-- ===============================================
-           KEY CONCEPTS SUMMARY
-           
-           Teaching purpose: Reinforces main learning points
-           Provides reference for students to review
-           =============================================== -->
-      <div class="demo-section">
-        <h2>4. Key Concepts</h2>
+    <!-- Navigation Bar Section -->
+    <section>
+      <h2>Navigation Bar Demo</h2>
+      <!-- Horizontal navigation bar with 5 menu items: Home, About, Services, Portfolio, Contact -->
+      <!--Use flexbox for horizontal layout with flex-grow and flex-shrink propertie -->
+      <nav class="flex-nav">
         <ul>
-          <li>
-            <strong>Semantic HTML:</strong> Use &lt;nav&gt;, &lt;ul&gt;,
-            &lt;li&gt; for accessibility and meaning
-          </li>
-          <li>
-            <strong>CSS Methods:</strong> Inline, Float, Flexbox each solve
-            horizontal layout differently
-          </li>
-          <li>
-            <strong>Positioning:</strong> Dropdowns combine relative and
-            absolute positioning
-          </li>
-          <li>
-            <strong>Hover States:</strong> Provide immediate visual feedback for
-            better user experience
-          </li>
-          <li>
-            <strong>Active States:</strong> Show current page location for
-            navigation clarity
-          </li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
+      </nav>
+    </section>
+
+    <!-- Flexbox Properties Demo Section -->
+    <section>
+      <h2>Flexbox Properties Demo</h2>
+      <!-- Create 4 flex items in a container demonstrating different flex-grow and flex-shrink values -->
+      <!--Items should show how they grow and shrink differently when space changes-->
+      <div class="flex-container">
+        <div class="flex-item flex-item1">
+          Flex Item 1 <br />
+          <small>grow: 1 , shrink: 1</small>
+        </div>
+        <div class="flex-item flex-item2">
+          Flex Item 2<br />
+          <small>grow: 3 , shrink: 1</small>
+        </div>
+        <div class="flex-item flex-item3">
+          Flex Item 3 <br />
+          <small>grow: 1 , shrink: 3</small>
+        </div>
+        <div class="flex-item flex-item4">
+          Flex Item 4<br />
+          <small>grow: 2 , shrink: 2</small>
+        </div>
       </div>
-    </div>
 
-    <script>
-      // ===============================================
-      // JAVASCRIPT FUNCTIONS FOR INTERACTIVITY
-      //
-      // Teaching objectives:
-      // - Demonstrate DOM manipulation
-      // - Show event handling patterns
-      // - Practice function parameters and scope
-      // - Understand how JavaScript enhances HTML/CSS
-      // ===============================================
-
-      /**
-       * Sets active state for vertical navigation
-       *
-       * Teaching points:
-       * - DOM traversal with closest() and querySelectorAll()
-       * - Class manipulation with classList
-       * - Template literals for dynamic content
-       *
-       * @param {Element} clickedLink - The clicked navigation link element
-       * @param {string} page - The page name to display in content area
-       */
-      function setActive(clickedLink, page) {
-        // Find the parent navigation container
-        // closest() travels up the DOM tree to find matching ancestor
-        const nav = clickedLink.closest("nav");
-
-        // Remove active class from all links in this navigation
-        // querySelectorAll() returns all matching elements
-        // forEach() iterates over the NodeList
-        nav.querySelectorAll("a").forEach((link) => {
-          link.classList.remove("active");
-        });
-
-        // Add active class to the clicked link
-        // This creates the visual "current page" indicator
-        clickedLink.classList.add("active");
-
-        // Update content area with dynamic content
-        // getElementById() targets specific element
-        // Template literals (backticks) allow variable interpolation
-        document.getElementById(
-          "vertical-content"
-        ).innerHTML = `<strong>${page} Content</strong><br>You're now on the ${page} page. Notice the active state highlighting.`;
-      }
-
-      /**
-       * Shows different horizontal navigation methods
-       *
-       * Teaching points:
-       * - Show/hide elements with CSS classes
-       * - Event object usage (event.target)
-       * - Object literals for data mapping
-       *
-       * @param {string} method - The method to display (inline, float, flex)
-       */
-      function showMethod(method) {
-        // Hide all method demonstration sections
-        // This ensures only one method is visible at a time
-        document.querySelectorAll(".method-demo").forEach((demo) => {
-          demo.classList.remove("active");
-        });
-
-        // Show the selected method demonstration
-        // String concatenation creates the correct ID
-        document.getElementById(method + "-demo").classList.add("active");
-
-        // Update button visual states
-        // Remove active class from all buttons
-        document.querySelectorAll(".toggle-btn").forEach((btn) => {
-          btn.classList.remove("active");
-        });
-
-        // Add active class to clicked button
-        // event.target refers to the element that triggered the event
-        event.target.classList.add("active");
-
-        // Create user-friendly method names
-        // Object literal maps internal names to display names
-        const methodNames = {
-          inline: "Inline Display",
-          float: "Float Method",
-          flex: "Flexbox (Modern)",
-        };
-
-        // Update content area to show which method is active
-        // This provides immediate feedback to users
-        document.getElementById(
-          "horizontal-content"
-        ).innerHTML = `<strong>${methodNames[method]} Active</strong><br>Compare how each CSS method creates the same visual result.`;
-      }
-
-      /**
-       * Updates content for horizontal navigation clicks
-       *
-       * Teaching points:
-       * - Function parameters for flexible functionality
-       * - Consistent user feedback patterns
-       *
-       * @param {string} method - The CSS method being demonstrated
-       * @param {string} page - The page name that was clicked
-       */
-      function updateContent(method, page) {
-        // Update content area with both method and page information
-        // This helps students understand the relationship between UI and content
-        document.getElementById(
-          "horizontal-content"
-        ).innerHTML = `<strong>${page} - ${method} Method</strong><br>You clicked ${page} using the ${method} approach.`;
-      }
-
-      /**
-       * Updates content for dropdown navigation
-       *
-       * Teaching points:
-       * - Consistent function naming patterns
-       * - How dropdowns relate to content hierarchy
-       *
-       * @param {string} page - The page or dropdown item selected
-       */
-      function updateDropdown(page) {
-        // Provide feedback for dropdown interactions
-        // This demonstrates how complex navigation affects content
-        document.getElementById(
-          "dropdown-content"
-        ).innerHTML = `<strong>${page} Selected</strong><br>You selected ${page}. Dropdowns organize complex navigation hierarchies.`;
-      }
-
-      // Global event listener prevents default link behavior
-      // This allows the demo to work without actual page navigation
-      // Teaching point: Event delegation and preventDefault()
-      document.addEventListener("click", function (e) {
-        // Check if clicked element is a link
-        if (e.target.tagName === "A") {
-          e.preventDefault(); // Prevent default link navigation
-        }
-      });
-    </script>
+      <p>
+        <em
+          >Resize your browser window to see how items grow and shrink
+          differently based on their flex properties</em
+        >
+      </p>
+    </section>
   </body>
 </html>
