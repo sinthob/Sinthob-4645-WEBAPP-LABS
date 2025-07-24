@@ -1,0 +1,311 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Container for content width */
+.container {
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/* MOBILE-FIRST: Base styles for mobile devices */
+
+/* Navigation - Mobile */
+.navbar {
+    background-color: #2c3e50;
+    padding: 1rem 0;
+}
+
+.nav-brand h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.nav-menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    list-style: none;
+    background-color: #34495e;
+}
+
+.nav-menu li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    text-align: center;
+    border-bottom: 1px solid #2c3e50;
+    transition: background-color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    background-color: #3498db;
+}
+
+/* Hero Section - Mobile */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Features Section - Mobile */
+.features {
+    padding: 3rem 0;
+    background-color: #f8f9fa;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: #2c3e50;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.feature-card h3 {
+    color: #3498db;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Footer - Mobile */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* TABLET STYLES */
+@media (min-width: 768px) {
+    .container {
+        max-width: 750px;
+    }
+    
+    /* Navigation - Tablet */
+    .navbar {
+        padding: 1rem 0;
+    }
+    
+    .nav-brand {
+        text-align: left;
+        margin-bottom: 0;
+    }
+    
+    .nav-menu {
+        grid-template-columns: repeat(5, 1fr);
+        background-color: transparent;
+    }
+    
+    .nav-menu li a {
+        border-bottom: none;
+        border-radius: 4px;
+        margin: 0 5px;
+    }
+    
+    /* Hero - Tablet */
+    .hero {
+        padding: 4rem 2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    /* Features - Tablet */
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* DESKTOP STYLES */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1170px;
+    }
+    
+    /* Navigation - Desktop */
+    .navbar {
+        padding: 1.5rem 0;
+    }
+    
+    .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .nav-menu {
+        display: flex;
+        grid-template-columns: none;
+        gap: 1rem;
+    }
+    
+    .nav-menu li a {
+        padding: 10px 20px;
+        margin: 0;
+    }
+    
+    /* Hero - Desktop */
+    .hero {
+        padding: 6rem 2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.3rem;
+    }
+    
+    /* Features - Desktop */
+    .features {
+        padding: 4rem 0;
+    }
+    
+    .feature-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+    
+    .feature-card {
+        padding: 2.5rem;
+    }
+}
+
+/* LARGE DESKTOP STYLES */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+    
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    
+    .feature-grid {
+        gap: 2.5rem;
+    }
+}
+
+/* HIDE ELEMENTS ON SMALL SCREENS */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-only {
+        display: none;
+    }
+}
+
+/* HIGH-DPI DISPLAYS */
+@media (min-width: 1200px) and (min-resolution: 192dpi) {
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+    
+    .feature-card {
+        padding: 3rem;
+    }
+}
+
+
+
+
+/* DESKTOP-FIRST APPROACH */
+
+/* Base styles for desktop */
+.desktop-first-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #2c3e50;
+}
+
+.desktop-first-nav .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.desktop-first-nav .nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+    .desktop-first-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .desktop-first-nav .nav-menu {
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .desktop-first-nav .nav-menu {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+    
+    .desktop-first-nav .nav-menu a {
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid #34495e;
+    }
+}
