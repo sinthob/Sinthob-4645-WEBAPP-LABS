@@ -1,0 +1,615 @@
+/* TODO: Add responsive image base rule */
+img {
+  /* Add 3 properties for responsive images */
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+
+}
+
+/* TODO: Add faculty photo object-fit styling */
+.faculty-photo img {
+  /* Add object-fit property for proper image scaling */
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+}
+
+
+
+
+
+/* TODO: Header navigation flexbox */
+.header-content {
+  /* Add flexbox with space-between alignment */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+
+
+
+
+/* TODO: Faculty grid flexbox */
+.faculty-grid {
+  /* Add flexbox with gap and wrap for faculty cards */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.faculty-card {
+  /* Add flex property for equal-width cards */
+  flex: 1 1 calc(50% - 1rem);
+
+}
+
+
+
+
+
+/* TODO: Mobile responsive styles */
+@media (max-width: 767px) {
+  .header-content {
+    /* Change to column direction */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .faculty-grid {
+    /* Change to column direction */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .faculty-card {
+    /* Make cards full width */
+    width: 100%;
+  }
+}
+
+
+
+/* =========================================
+   DEPARTMENT WEBSITE - SIMPLIFIED VERSION
+   Complete only the 4 TODO sections below
+   ========================================= */
+
+/* Universal reset and foundation */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333333;
+}
+
+/* ============================================
+   ⭐ TODO SECTION 1: RESPONSIVE IMAGES (3 points)
+   Add responsive image rules and faculty photo styling
+   ============================================ */
+/* TODO: Add base responsive image rule here (3 properties) */
+img {
+  max-width: 100%; /* Ensures images do not exceed their container width */
+  height: auto; /* Maintains aspect ratio */
+  display: block; /* Removes bottom space in inline images */
+}
+
+
+/* TODO: Add faculty photo object-fit styling here (1 property) */
+.faculty-photo img {
+  max-width: 100%; 
+  height: auto; 
+  object-fit: cover; 
+}
+
+
+
+/* University color scheme - PROVIDED */
+:root {
+  --primary-blue: #1e40af;
+  --secondary-blue: #3b82f6;
+  --accent-gold: #f59e0b;
+  --text-light: #6b7280;
+  --background-light: #f8fafc;
+}
+
+/* Header base styling - PROVIDED */
+.site-header {
+  background: var(--primary-blue);
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1)
+}
+
+/* ============================================
+   ⭐ TODO SECTION 2: HEADER FLEXBOX (4 points)
+   Complete flexbox layout for header and navigation
+   ============================================ */
+.header-content {
+  /* TODO: Add flexbox layout with space-between justification */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    /*Apply gradient background from primary to secondary blue*/
+
+}
+
+.department-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-placeholder {
+  width: 50px;
+  height: 50px;
+  background: var(--accent-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--primary-blue);
+  flex-shrink: 0;
+}
+
+.department-logo h1 {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.nav-menu {
+    /* TODO: Add flexbox layout with gap between items */
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.nav-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+/* Hero section - PROVIDED */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  color: white;
+  padding: 4rem 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 3rem;
+  border-radius: 0;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+.cta-button {
+  display: inline-block;
+  background: var(--accent-gold);
+  color: var(--primary-blue);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* Faculty section base styling - PROVIDED */
+.faculty-section {
+  padding: 4rem 0;
+  background: white;
+}
+
+.faculty-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: var(--primary-blue);
+}
+
+/* ============================================
+   ⭐ TODO SECTION 3: FACULTY FLEXBOX (4 points)
+   Complete flexbox layout for faculty grid and cards
+   ============================================ */
+.faculty-grid {
+  /* TODO: Add flexbox layout with gap and wrap */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center; 
+  
+}
+
+.faculty-card {
+  /* TODO: Add flex property for equal card sizing */
+  flex: 1 1 calc(50% - 1rem);
+  background: var(--background-light);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faculty-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+  background: var(--background-light);
+}
+
+.faculty-info {
+  text-align: center;
+}
+
+.faculty-info h3 {
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.faculty-title {
+  color: var(--secondary-blue);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Department subtitle styling */
+.department-subtitle {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.faculty-expertise {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+
+/* Programs section styling */
+.programs-section {
+  padding: 4rem 0;
+  background: var(--background-light);
+}
+
+.programs-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: var(--primary-blue);
+}
+
+.programs-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.program-card {
+  flex: 1;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-3px);
+}
+
+
+.program-card h3 {
+  color: var(--primary-blue);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.program-duration {
+  color: var(--accent-gold);
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.program-card p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+
+.program-highlights {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.program-highlights li {
+  padding: 0.25rem 0;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+
+.program-highlights li::before {
+  content: "✓ ";
+  color: var(--secondary-blue);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* ============================================
+   ⭐ TODO SECTION 4: CONTACT SECTION (4 points)
+   Complete contact section layout and styling
+   ============================================ */
+
+/* Contact section styling */
+.contact-section {
+  padding: 4rem 0;
+  background: white;
+}
+
+
+.contact-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: var(--primary-blue);
+}
+
+.contact-content {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.contact-item {
+  flex: 1;
+  min-width: 250px;
+  background: var(--background-light);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.contact-item h3 {
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.contact-item p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   FOOTER - PROVIDED
+========================================= */
+
+
+/* Footer styling */
+.site-footer {
+  background: var(--primary-blue);
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.site-footer p {
+  opacity: 0.9;
+}
+
+
+/* Mobile navigation improvements */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+/* Card hover effects */
+.faculty-card:hover,
+.program-card:hover,
+.contact-item:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  transition: transform 0.3s ease;
+}
+
+
+/* TODO: Add mobile media query here */
+
+/* Tablet and small desktop (768px and up) - PROVIDED */
+@media (min-width: 768px) {
+  .hero-content h2 {
+    font-size: 3rem;
+  }
+
+  /* Ensure faculty and programs stay flexible */
+  .faculty-grid {
+    justify-content: space-around;
+  }
+
+  .programs-grid {
+    justify-content: space-between;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .nav-toggle {
+    display: block;
+  }
+  
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--primary-blue);
+    flex-direction: column;
+    padding: 1rem 0;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; 
+  }
+  
+  .nav-menu.active {
+    display: flex;
+  }
+  
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+    list-style: none;
+  }
+  
+  .nav-menu a {
+    display: block;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0;
+  }
+
+   .nav-menu li:last-child a {
+    border-bottom: none;
+  }
+
+    /* Hero adjustments for mobile - PROVIDED */
+  .hero-section {
+    padding: 3rem 1rem;
+    min-height: 40vh;
+  }
+
+  .hero-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .main-nav {
+    position: relative;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .faculty-grid {
+    flex-direction: column;
+  }
+  
+  .faculty-card {
+    width: 100%;
+  }
+  
+  .programs-grid {
+    flex-direction: column;
+  }
+   .program-card {
+    min-width: 100%;
+  }
+
+  /* Contact section mobile layout - PROVIDED */
+  .contact-content {
+    flex-direction: column;
+  }
+
+  .contact-item {
+    min-width: 100%;
+  }
+
+  .contact-content {
+    flex-direction: column;
+  }
+}
+
+/* Container for content sections */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
