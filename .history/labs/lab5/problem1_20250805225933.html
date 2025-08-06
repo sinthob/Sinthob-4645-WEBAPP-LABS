@@ -1,0 +1,109 @@
+ข้ามไปที่เนื้อหา ประวัติการแชต คุณพูดว่า: ภาพที่อัปโหลด ฉันจะสร้าง htmlเเละ css
+ของ lab ต่อไปนี้ยังไง ตัวอย่างเว็บอยู่ในรูป, Problems Problem 1 Prime Numbers
+Finder! (5 points) Write a responsive web application that finds all prime
+numbers up to a given positive integer. Requirements Write the web app
+(problem1.html and lib/problem1.js) to prompt accepting for a positive integer
+number: If the entered text is not a positive integer number (such as
+non-numeric inputs (a, b, c…), a negative integer, a floating-point number),
+then the web app will keep asking for a number until the valid positive integer
+is entered If the entered text is a positive integer, then the app will print
+prime numbers that are not greater than that given positive integer
+Implementation Hints: You may want to use a loop with a label You may want to
+use an array with push function Technical Requirements: Files: problem1.html,
+lib/problem1.js, lib/style.css You need to publish your web app at github.io
+Your web app needs to be responsive You need to test it with phones or tablets
+The output should match the sample shown in the YouTube video:
+https://youtu.be/6IB1kfpUGfg Required Functions to Implement: javascript
+function validateInput(input) { /* validate if input is positive integer */ }
+function findPrimes(limit) { /* find all primes up to limit */ } function
+displayPrimes(primes, limit) { /* display results on webpage */ } Grading
+Criteria (5 points total): Criteria Excellent (2.0) Good (1.5) Fair (1.0) Poor
+(0.5) Missing (0) Input Validation & Loop Control (2 pts) Perfect input
+validation with proper loop control, handles all invalid inputs correctly, keeps
+asking until valid input Good validation with minor issues, mostly handles
+invalid inputs Basic validation works but misses some edge cases Weak
+validation, major issues with input handling No proper input validation Prime
+Number Algorithm (2 pts) Correct and efficient prime number algorithm, produces
+accurate results for all test cases Correct algorithm with minor efficiency
+issues Algorithm works but has some logical flaws or inefficiencies Algorithm
+partially works, incorrect results for some inputs Incorrect or missing prime
+algorithm User Interface & Output Format (1 pt) Clean, responsive interface
+matching YouTube sample, proper output formatting, works on mobile Good
+interface with minor formatting issues Basic interface, some formatting problems
+Poor interface, major formatting issues No proper interface or incorrect output
+format To show that you know how to make the web with text responsive, use
+Chrome browser Click at three dots on the top right > More Tools > Developer
+Tool Choose Dimensions: iPhone SE To reduce your time in typing, this is the
+text that displays on the web page. However, you need to use HTML tags properly
+to format the text so that it’s displayed correctly. ===== ChatGPT พูดว่า:
+เพื่อเริ่มต้นสร้างเว็บไซต์ตามโจทย์ Problem 1: Prime Numbers Finder!
+ที่ปรากฏในรูปและคำอธิบาย คุณต้องสร้างไฟล์ 3 ไฟล์นี้: problem1.html –
+หน้าเว็บหลัก lib/problem1.js – โค้ด JavaScript สำหรับการทำงานของเว็บ
+lib/style.css – สไตล์ CSS สำหรับตกแต่งให้ responsive ✅
+ตัวอย่างโครงสร้างโปรเจกต์ project-folder/ ├── problem1.html └── lib/ ├──
+problem1.js └── style.css ✅ problem1.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prime Numbers Finder!</title>
+    <link rel="stylesheet" href="lib/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <div class="card">
+        <h2>Prime Numbers Finder!</h2>
+        <p>
+          Write the web app to prompt accepting for a positive integer number
+        </p>
+        <ul>
+          <li>
+            If the entered text is not a positive integer number,<br />
+            then the web app will keep asking for a number until the valid
+            positive integer is entered
+          </li>
+          <li>
+            If the entered text is a positive integer, then the web app will add
+            into a list of prime numbers
+          </li>
+        </ul>
+        <p><strong>Hint:</strong></p>
+        <ol>
+          <li>You may want to use loop with label</li>
+          <li>You may want to use array with push function</li>
+        </ol>
+        <button onclick="runPrimeFinder()">Find Prime Numbers</button>
+        <div id="result"></div>
+      </div>
+    </main>
+
+    <script src="lib/problem1.js"></script>
+  </body>
+</html>
+✅ lib/style.css body { font-family: Arial, sans-serif; margin: 0; padding: 0;
+background: #f2ede5; color: #333; } .container { display: flex; justify-content:
+center; align-items: center; min-height: 100vh; padding: 1rem; } .card {
+background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 10px
+rgba(0,0,0,0.1); max-width: 500px; width: 100%; } h2 { margin-top: 0; } button {
+padding: 0.5rem 1rem; margin-top: 1rem; background: #333; color: white; border:
+none; border-radius: 4px; cursor: pointer; } button:hover { background: #555; }
+#result { margin-top: 1rem; word-wrap: break-word; } /* Responsive */ @media
+(max-width: 600px) { .card { padding: 1rem; } } ✅ lib/problem1.js function
+validateInput(input) { const num = Number(input); return Number.isInteger(num)
+&& num > 0; } function findPrimes(limit) { const primes = []; nextPrime: for
+(let i = 2; i <= limit; i++) { for (let j = 2; j <= Math.sqrt(i); j++) { if (i %
+j === 0) continue nextPrime; } primes.push(i); } return primes; } function
+displayPrimes(primes, limit) { const resultDiv =
+document.getElementById("result"); resultDiv.innerHTML = `
+<p>Prime numbers up to <strong>${limit}</strong>:</p>
+<p>${primes.join(', ')}</p>
+`; } function runPrimeFinder() { let input; while (true) { input = prompt("Enter
+a positive integer number:"); if (validateInput(input)) break; alert("Invalid
+input. Please enter a **positive integer**."); } const num = Number(input);
+const primes = findPrimes(num); displayPrimes(primes, num); } ✅
+สิ่งที่ควรทำเพิ่มเติม ทดสอบบนมือถือหรือ DevTools (เช่น iPhone SE, Galaxy S8)
+เพื่อให้แน่ใจว่า responsive อัปโหลดทั้งหมดไปยัง GitHub และตั้งค่า GitHub Pages
+(ใช้ problem1.html เป็นหน้าแรก) หากต้องการให้ฉันช่วย deploy หรือสร้าง GitHub
+repo พร้อมไฟล์ทั้งหมด บอกได้เลยนะ! ไม่ได้เลือกไฟล์ใดไม่ได้เลือกไฟล์ใด ChatGPT
+อาจมีข้อผิดพลาด ควรตรวจสอบข้อมูลสำคัญ
