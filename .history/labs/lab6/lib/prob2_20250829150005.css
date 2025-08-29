@@ -1,0 +1,48 @@
+.planet {
+    /* Provided in template - creates circular planet appearance */
+    width: 200px;
+    height: 200px;
+    background: grey;
+    border-radius: 50%;
+
+    position: relative; /* จะทำให้ moon relative เหมือนในโจทย์ */
+    margin: 20px;
+}
+
+
+.moon {
+    /* Provided in template - creates smaller circular moon */
+
+    /*สร้างพระจันทร์ทรงกลม*/
+    width: 60px;
+    height: 60px;
+    background: yellow;
+    border-radius: 50%;
+
+    /* ส่วนวาง position ของพระขันทร์*/
+    position: absolute; 
+    top: 10px;           
+    left: 10px; 
+}
+
+
+/* สามารถลองใส่ responsive ตาม requirements เเลป */
+
+@media (max-width: 768px) {
+    .planet {
+        width: 100px;
+        height: 100px;
+    }
+
+    .moon {
+        width: 30px;
+        height: 30px;
+        position: absolute; 
+        top: 5px;           
+        left: 7px;     
+    }
+
+    div {
+        font-size: 20px !important;
+    }
+}

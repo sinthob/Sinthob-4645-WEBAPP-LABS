@@ -1,0 +1,11 @@
+/* for responsive styling */
+
+
+
+
+@media (max-width: 768px) {
+    img {
+        max-width: 90%;
+        height: auto;
+    }
+}

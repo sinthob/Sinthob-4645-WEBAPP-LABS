@@ -1,0 +1,12 @@
+.planet {
+    /* Provided in template - creates circular planet appearance */
+    width: 200px;
+    height: 200px;
+    background: grey;
+    border-radius: 50%;
+}
+
+
+.moon {
+    /* Provided in template - creates smaller circular moon */
+}

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <title>เดโม action / method / GET / POST</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+      }
+      body {
+        margin: 24px;
+        line-height: 1.6;
+      }
+      fieldset {
+        margin: 16px 0;
+        padding: 16px;
+        border-radius: 8px;
+      }
+      legend {
+        font-weight: 700;
+        padding: 0 8px;
+      }
+      label {
+        display: block;
+        margin: 8px 0;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="email"],
+      input[type="number"] {
+        padding: 6px 8px;
+        width: 320px;
+        max-width: 100%;
+      }
+      button {
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+      .note {
+        font-size: 0.95rem;
+        color: #333;
+        background: #f4f6f8;
+        padding: 8px;
+        border-radius: 6px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      @media (min-width: 900px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      pre {
+        background: #0f172a;
+        color: #e2e8f0;
+        padding: 12px;
+        border-radius: 8px;
+        overflow: auto;
+      }
+      code {
+        background: #eef;
+        padding: 0 4px;
+        border-radius: 4px;
+      }
+      hr {
+        margin: 24px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ตัวอย่างฟอร์ม: action / method / GET / POST</h1>
+
+    <p class="note">
+      <strong>สรุปเร็ว:</strong>
+      <br />• <code>action</code> = URL ปลายทางที่จะส่งฟอร์มเมื่อกด submit
+      (ถ้าไม่ใส่ → ส่งมาหน้าเดิม) <br />• <code>method</code> = วิธี HTTP
+      (ค่าเริ่มต้นคือ <code>GET</code> / ระบุ
+      <code>POST</code> สำหรับข้อมูลส่วนตัวหรือข้อมูลจำนวนมาก) <br />•
+      <strong>GET</strong>: ข้อมูลจะโชว์บน URL (เหมาะกับการค้นหา/แชร์ลิงก์)
+      <br />• <strong>POST</strong>: ข้อมูลอยู่ใน request body
+      (เหมาะกับข้อมูลลับ/ไฟล์/ฟอร์มยาว)
+    </p>
+
+    <div class="grid">
+      <!-- =========================
+         แบบฟอร์ม GET (method=GET)
+         ========================= -->
+      <section>
+        <form id="getForm" method="get">
+          <!-- ไม่ระบุ action = ส่งมาที่ "หน้าเดิม" ตามสเปค HTML -->
+          <fieldset>
+            <legend>ค้นหา (GET)</legend>
+
+            <!-- ทุก input ที่ต้องการส่ง ต้องมี name -->
+            <label>
+              คำค้นหา:
+              <input type="text" name="q" placeholder="เช่น JavaScript" />
+            </label>
+
+            <!-- ตัวอย่าง checkbox หลายค่า: ใช้ชื่อแบบ array เพื่อรับค่าหลายตัว -->
+            <label>
+              <input type="checkbox" name="tags[]" value="frontend" /> frontend
+            </label>
+            <label>
+              <input type="checkbox" name="tags[]" value="backend" /> backend
+            </label>
+
+            <!-- Hidden เอาไว้ดูว่า URL มาจากฟอร์มไหน -->
+            <input type="hidden" name="form_name" value="get_demo" />
+
+            <button type="submit">ค้นหา (ส่งแบบ GET)</button>
+          </fieldset>
+
+          <p class="note">
+            ฟอร์มนี้ตั้ง <code>method="get"</code> และ <em>ไม่ใส่</em>
+            <code>action</code> ⇒
+            เบราว์เซอร์จะส่งมาที่หน้าเดิมพร้อมพารามิเตอร์บน URL
+            <br />หลังส่งแล้ว สังเกตดูที่แถบที่อยู่ (จะเห็นเช่น
+            <code>?q=...&amp;tags[]=frontend</code>)
+          </p>
+        </form>
+      </section>
+
+      <!-- =========================
+         แบบฟอร์ม POST (method=POST)
+         ========================= -->
+      <section>
+        <!-- action="#" ใช้เพื่อเดโม: งานจริงควรเปลี่ยนเป็น URL ของเซิร์ฟเวอร์ เช่น /api/register -->
+        <form
+          id="postForm"
+          method="post"
+          action="#"
+          enctype="multipart/form-data"
+        >
+          <fieldset>
+            <legend>สมัครสมาชิก (POST)</legend>
+
+            <label>
+              อีเมล:
+              <input
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+              />
+            </label>
+
+            <label>
+              รหัสผ่าน:
+              <input
+                type="password"
+                name="password"
+                placeholder="••••••••"
+                required
+              />
+            </label>
+
+            <label>
+              อายุ:
+              <input type="number" name="age" min="1" max="120" />
+            </label>
+
+            <label>
+              รูปโปรไฟล์ (อัปโหลดไฟล์):
+              <!-- เมื่อมีไฟล์ ต้องใช้ enctype="multipart/form-data" -->
+              <input type="file" name="avatar" accept="image/*" />
+            </label>
+
+            <!-- เอาไว้ดูว่า payload นี้มาจากฟอร์มไหน -->
+            <input type="hidden" name="form_name" value="post_demo" />
+
+            <button type="submit">สมัคร (ส่งแบบ POST)</button>
+          </fieldset>
+
+          <p class="note">
+            ฟอร์มนี้ตั้ง <code>method="post"</code> และ
+            <code>enctype="multipart/form-data"</code> (กรณีมีไฟล์)
+            <br />เดโมนี้ “ดัก submit” ด้วย JS เพื่อแสดง payload
+            ที่จะส่งออกมาให้เห็นในหน้า (โดยไม่ต้องมีเซิร์ฟเวอร์)
+            <br />งานจริงให้ตั้ง <code>action</code> เป็น URL ของปลายทาง เช่น
+            <code>/users/register</code>
+          </p>
+        </form>
+      </section>
+    </div>
+
+    <hr />
+
+    <h2>ผลลัพธ์</h2>
+    <h3>พารามิเตอร์บน URL (จากฟอร์ม GET)</h3>
+    <pre id="getResult">(ยังไม่มีค่า—ลองส่งฟอร์ม GET ทางซ้าย)</pre>
+
+    <h3>ข้อมูลที่จะถูกส่ง (จากฟอร์ม POST)</h3>
+    <pre id="postResult">(ยังไม่มีค่า—ลองส่งฟอร์ม POST ทางขวา)</pre>
+
+    <script>
+      // แปลง URLSearchParams -> อ็อบเจ็กต์ (รองรับหลายค่าชื่อเดียวกันเป็น array)
+      function paramsToObject(searchParams) {
+        const obj = {};
+        for (const [key, value] of searchParams.entries()) {
+          if (obj[key] === undefined) {
+            obj[key] = value;
+          } else if (Array.isArray(obj[key])) {
+            obj[key].push(value);
+          } else {
+            obj[key] = [obj[key], value];
+          }
+        }
+        return obj;
+      }
+
+      // แปลง FormData -> อ็อบเจ็กต์ (รองรับหลายค่าชื่อเดียวกัน + ไฟล์)
+      function formDataToObject(fd) {
+        const obj = {};
+        for (const [key, value] of fd.entries()) {
+          const v =
+            value instanceof File
+              ? {
+                  filename: value.name || null,
+                  size: value.size || 0,
+                  type: value.type || "",
+                }
+              : value;
+
+          if (obj[key] === undefined) {
+            obj[key] = v;
+          } else if (Array.isArray(obj[key])) {
+            obj[key].push(v);
+          } else {
+            obj[key] = [obj[key], v];
+          }
+        }
+        return obj;
+      }
+
+      // แสดงค่าจาก URL (กรณีส่ง GET)
+      function renderGetFromUrl() {
+        const sp = new URLSearchParams(window.location.search);
+        const data = paramsToObject(sp);
+        const pretty = JSON.stringify(data, null, 2);
+        document.getElementById("getResult").textContent =
+          pretty === "{}" ? "(ไม่มีพารามิเตอร์บน URL)" : pretty;
+      }
+
+      renderGetFromUrl();
+
+      // ดัก submit ของ POST เพื่อแสดง payload (แทนการยิงไป server จริง)
+      const postForm = document.getElementById("postForm");
+      postForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // กันไม่ให้เบราว์เซอร์ส่งไปจริง
+        const fd = new FormData(postForm);
+        const payload = formDataToObject(fd);
+
+        const info = {
+          method: postForm.method.toUpperCase(),
+          action: postForm.action || window.location.href,
+          enctype: postForm.enctype,
+          payload,
+        };
+
+        document.getElementById("postResult").textContent = JSON.stringify(
+          info,
+          null,
+          2
+        );
+      });
+
+      // (ออปชัน) ถ้าอยากไม่รีเฟรชหน้าเวลา submit GET:
+      // - ยกเลิกคอมเมนต์บล็อกด้านล่าง
+      // - จะใช้ history.pushState เพื่อใส่พารามิเตอร์บน URL แล้วเรียก renderGetFromUrl() อีกรอบ
+
+      /*
+    const getForm = document.getElementById('getForm');
+    getForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(getForm);
+      const sp = new URLSearchParams(fd);
+      const newUrl = `${location.pathname}?${sp.toString()}`;
+      history.pushState(null, "", newUrl);
+      renderGetFromUrl();
+    });
+    */
+    </script>
+
+    <hr />
+    <p class="note">
+      เคล็ดลับเพิ่มเติม:
+      <br />• ฟอร์มที่อัปโหลดไฟล์ → ต้องใช้ <code>method="post"</code> และ
+      <code>enctype="multipart/form-data"</code> <br />• ข้อมูลที่เป็นความลับ
+      (เช่น รหัสผ่าน) → ใช้ <strong>POST</strong> เท่านั้น <br />•
+      ต้องการให้เลือกได้ทีละตัว (radio) → ตั้ง
+      <code>name</code> เดียวกันในทุกตัวเลือก <br />• ต้องการส่งหลายค่า
+      (checkbox หลายตัว) → ใช้ชื่อแบบ <code>tags[]</code> เพื่อรวมเป็นชุด
+    </p>
+  </body>
+</html>
