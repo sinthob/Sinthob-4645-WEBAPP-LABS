@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Challenge: Cat-stache</title>
+    <style>
+      #mustache-pic {
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      id="cat-pic"
+      src="https://www.kasandbox.org/programming-images/animals/cat.png"
+      width="300"
+      alt="cat photo"
+    />
+
+    <img
+      id="mustache-pic"
+      src="https://www.kasandbox.org/programming-images/misc/mustache.png"
+      alt="mustache"
+      width="100"
+    />
+
+    <script>
+      var catPic = document.getElementById("cat-pic");
+      var onCatClick = function (e) {
+        var stashePic = document.getElementById("mustache-pic");
+
+        //เนื่องจากลองใช้ "event.client" + "px" ตรงๆเเล้วตำเเหน่งกึ่งกลางหนวดมันไม่ตรงจุดคลิ้กเมาส์
+        //ไม่มั่นใจว่าเป็นเพราะช่องว่างในขนาดรูปอยู่เเล้วมั้ย ขออนุญาติปรับ px นิดหน่อยครับ
+
+        //event.client เป็น double บวกลบได้เลย
+        let top = event.clientY - 20;
+        let left = event.clientX - 50;
+
+        stashePic.style.top = top + "px";
+        stashePic.style.left = left + "px";
+      };
+      catPic.addEventListener("click", onCatClick);
+    </script>
+  </body>
+</html>
