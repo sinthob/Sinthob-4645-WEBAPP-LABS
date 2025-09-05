@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Challenge: Catwalk</title>
+    <style>
+      #cat {
+        position: absolute;
+        left: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <!-- Cat walking GIF from: http://www.anniemation.com/clip_art/graphics.html -->
+      <img
+        id="cat"
+        src="https://www.kasandbox.org/programming-images/misc/cat-walk.gif"
+      />
+    </div>
+
+    <script>
+      let catEl = document.getElementById("cat");
+
+      let startTime = new Date().getTime();
+
+      let walkTheCat = function () {
+        let currTime = new Date().getTime();
+        let secondsElapsed = (currTime - startTime) / 1000;
+
+        //สร้างตัวเเปลไว้เปรียบเทียบตำเเหน่งของเเมวว่าเกิน 1000px หรือยัง
+        let position = secondsElapsed * 100;
+
+        //ไหลไปทางขวามือเรื่อยๆตามเวลาที่เพิ่มขึ้น
+        catEl.style.left = position + "px";
+
+        // log ไว้เช็คว่า left position ของเเมวเป็นเท่าไหร่ เพื่อดูว่าหยุดที่ 1000px จริงๆจาก console browser
+        console.log(position);
+
+        // ถ้า postion left ของเเมว >= 1000px ให้เปลี่ยนรูปเเมวเป็นรูปหยุดเดิน
+        if (position >= 1000) {
+          catEl.src = "pictureUsedInLab/stopedCat.png";
+          catEl.style.height = "270px";
+          catEl.style.width = "auto";
+          catEl.style.top = "20px";
+        }
+        // ถ้า position left ของเเมวยังไม่ถึง 1000px ให้เเมวเดินต่อเรื่อยๆ
+        if (position < 1000) {
+          requestAnimationFrame(walkTheCat);
+        }
+      };
+
+      walkTheCat();
+    </script>
+  </body>
+</html>
