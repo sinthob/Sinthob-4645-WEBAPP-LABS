@@ -3,3 +3,5 @@ lab3/
 *.log
 
 labs/midterm_code/
+
+.env
