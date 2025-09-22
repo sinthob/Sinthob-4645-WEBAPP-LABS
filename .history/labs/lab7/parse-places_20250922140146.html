@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <div id="placeShow" style="padding-left: 30px"></div>
+
+  <script>
+    fetch("files/places.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        places = data.results;
+        number_Of_places = 1; //อีกวิธีจากสไลด์คือใช้ <li>ให้มันใส่ตัวเลขให้เเต่ละที่
+
+        for (let place of places) {
+          document.getElementById("placeShow").innerHTML +=
+            number_Of_places +
+            ". " +
+            "<span style='color: blue;'>" +
+            "name = " +
+            place.name +
+            "</span>" +
+            "<br> " +
+            "<span style='color: green; padding-left: 15px;'>" +
+            "loation = " +
+            place.geometry.location.lat +
+            " " +
+            place.geometry.location.lng +
+            "</span>" +
+            "<br> ";
+
+          number_Of_places += 1;
+        }
+      }); //ใส่ catch() เพื่อดัก error ได้ เเต่โจทย์เอาเท่านี้
+  </script>
+</html>

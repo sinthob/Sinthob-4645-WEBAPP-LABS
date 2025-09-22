@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <h1>Reading Students Information</h1>
+
+  <div id="place_show" style="padding-left: 30px"></div>
+
+  <script>
+    fetch("files/places.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        places = data.results;
+        number_Of_places = 1;
+
+        for (let place of places) {
+          document.getElementById("place_show").innerHTML +=
+            number_Of_places +
+            "." +
+            place.name +
+            "<hr> " +
+            "<b>" +
+            student.geometry.location +
+            "</b>" +
+            "<hr> ";
+
+          number_Of_places += 1;
+        }
+      });
+  </script>
+</html>
