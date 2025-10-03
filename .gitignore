@@ -2,6 +2,10 @@ lab1/
 lab3/
 *.log
 
+.env
+.env.*
+.history/
+
 labs/midterm_code/
 
 .env
